@@ -1,5 +1,6 @@
 import { DriverAdapter } from '@prisma/client/runtime/library'
 
+// Inspired by https://github.com/prisma/prisma/blob/main/packages/adapter-d1/src/d1.ts
 class PrinterQueryable {
   constructor() {}
 
