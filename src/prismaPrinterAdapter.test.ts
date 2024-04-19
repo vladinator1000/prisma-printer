@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client"
 describe('prismaPrinterAdapter', () => {
   let adapter = new PrismaPrinter()
   let prisma = new PrismaClient({adapter})
-  
+
   it('prints sql', async () => {
     await prisma.user.createMany({
       data: [
@@ -15,6 +15,9 @@ describe('prismaPrinterAdapter', () => {
     })
 
     let sql = adapter.print()
+
+    // This test breaks like this:
+    // double free or corruption (fasttop)
     expect(sql).toEqual('INSERT...')
   })
 })
