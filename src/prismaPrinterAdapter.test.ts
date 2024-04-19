@@ -5,6 +5,7 @@ import { PrismaClient } from "@prisma/client"
 describe('prismaPrinterAdapter', () => {
   let adapter = new PrismaPrinter()
   let prisma = new PrismaClient({adapter})
+  
   it('prints sql', async () => {
     await prisma.user.createMany({
       data: [
